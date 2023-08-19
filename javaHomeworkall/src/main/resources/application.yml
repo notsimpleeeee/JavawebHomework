@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    allow-circular-references: true
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 2177ASas
+    url: jdbc:mysql://8.130.122.223:3306/javaweb?ServerTimezone=UTC
+  web:
+    resources:
+      static-locations: classpath:/static/
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+  thymeleaf:
+    cache: false
+
+mybatis:
+  type-aliases-package: com.example.javawebb.model   #   别名
+  mapper-locations: classpath:/Mapper/*.xml   #   xml文件
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.javawebb.dao.ScoreDao">
+    <select id="listScore" resultType="com.example.javawebb.model.Score">
+        select *  from javaweb.score
+    </select>
+
+    <insert id="addScore" parameterType="com.example.javawebb.model.Score">
+        insert into javaweb.score(uname, total_score,mid_score,final_score,class_id,course_id) values
+(#{uname},#{total_score},#{mid_score},#{final_score},#{class_id},#{course_id})
+    </insert>
+
+    <delete id="deleteScore">
+        delete from javaweb.score where uname=#{uname} and course_id=#{course_id}
+    </delete>
+
+    <select id="queryScoreByUsername" parameterType="string" resultType="com.example.javawebb.model.Score">
+        select * from javaweb.score where uname=#{uname}
+    </select>
+<!--    <update id="updateScore" parameterType="com.example.javawebb.model.Score">-->
+<!--        update javaweb.score-->
+<!--        set total_score = #{total_score}-->
+<!--        where user_name = #{user_name}-->
+<!--    </update>-->
+</mapper>
